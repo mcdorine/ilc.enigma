@@ -1,4 +1,4 @@
-# TP 4A SQR 2019-20: enigma
+# TP 4A SQR 2019-20: enigma : MAILLET DORINE - POTIQUET CLEMENT
 Code for the German Enigma machine used in WW2.
 
 ## Questions
