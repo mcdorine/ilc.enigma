@@ -27,7 +27,12 @@ public class Machine {
 		this.setPositions(setting);
 
 	}
-
+        /**
+         * Fonction qui convertie le message en majuscule, et copie
+         * les caractères de cette instance vers un tableau
+         * @param msg:  le message à convertir
+         * @result: tableau contenant le message en majuscule 
+         */
 	public String convert(String msg) {
 		msg = msg.toUpperCase();
 		char[] msgChars = msg.toCharArray();
@@ -52,7 +57,10 @@ public class Machine {
 		return Rotor.toLetter(output);
 
 	}
-
+        /** 
+         * Limiter le nombre de conditions, surtout advanceMiddle
+         * On avance de 1 sauf si on a un Notch
+         */
 	void advanceRotors() {
 		boolean advanceLeft = false;
 		boolean advanceMiddle = false;
@@ -62,16 +70,12 @@ public class Machine {
 		if (middleRotor.atNotch()) {
 			advanceMiddle = true;
 			advanceLeft = true;
+                        leftRotor.advance();
 		}
 		if (rightRotor.atNotch()) {
 			advanceMiddle = true;
 			advanceRight = true;
-		}
-		if (advanceLeft) {
-			leftRotor.advance();
-		}
-		if (advanceRight) {
-			rightRotor.advance();
+                        rightRotor.advance();
 		}
 		if (advanceMiddle) {
 			middleRotor.advance();
